@@ -40,12 +40,10 @@ public class MRServerEvent {
                 Villager villager = (Villager) e;
                 UUID uuid = villager.getUUID();
                 int playerReputation = villager.getPlayerReputation(serverPlayer);
-                if(ReputationCache.get(uuid)==Integer.MIN_VALUE || ReputationCache.get(uuid)!=playerReputation){
-                    ReputationCache.put(uuid,playerReputation);
-                    PacketDistributor.sendToPlayer(serverPlayer,new VillageReputationS2CMessage(uuid,playerReputation));
-                }
+                ReputationCache.put(uuid, playerReputation);
+                PacketDistributor.sendToPlayer(serverPlayer, new VillageReputationS2CMessage(uuid, playerReputation));
             });
-
+            ReputationCache.update();
         }
 
     }

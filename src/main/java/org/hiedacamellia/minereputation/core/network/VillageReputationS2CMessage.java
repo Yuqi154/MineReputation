@@ -11,6 +11,7 @@ import org.hiedacamellia.immersiveui.client.gui.component.w2s.World2ScreenWidget
 import org.hiedacamellia.minereputation.MineReputation;
 import org.hiedacamellia.minereputation.client.gui.widget.w2s.ExistW2SWidget;
 import org.hiedacamellia.minereputation.client.gui.widget.w2s.VillagerReputationW2SWidget;
+import org.hiedacamellia.minereputation.core.util.ReputationCache;
 
 import java.util.UUID;
 

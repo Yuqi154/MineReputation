@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import org.hiedacamellia.immersiveui.client.gui.component.w2s.World2ScreenWidget;
 import org.hiedacamellia.minereputation.client.gui.layer.ToastLayer;
 import org.hiedacamellia.minereputation.client.gui.util.ReputationUtil;
+import org.hiedacamellia.minereputation.core.util.ReputationCache;
 import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 import org.joml.Vector3f;
 
@@ -19,12 +20,22 @@ public class VillagerReputationW2SWidget extends World2ScreenWidget {
     private final Villager villager;
     protected static final Player player = Minecraft.getInstance().player;
     protected int reputation;
+    public boolean first = true;
 
-    public void setReputation(int reputation){
+    public void updateReputation(int reputation){
         if(this.reputation != reputation){
             ToastLayer.INSTANCE.setToast(ReputationChangeType.calculate(reputation-this.reputation));
         }
         this.reputation = reputation;
+    }
+
+    public void setReputation(int reputation){
+        if(first){
+            this.reputation = reputation;
+            first = false;
+        }else {
+            updateReputation(reputation);
+        }
     }
 
     public VillagerReputationW2SWidget(Villager villager) {
@@ -62,6 +73,7 @@ public class VillagerReputationW2SWidget extends World2ScreenWidget {
         if(!villager.isAlive()){
             ExistW2SWidget.remove(getId());
         }
+        if(first) return;
 
         RenderSystem.setShaderColor(1,1,1,alpha);
 

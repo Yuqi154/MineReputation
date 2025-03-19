@@ -26,7 +26,7 @@ public class ReputationToastMessageWidget extends AbstractWidget {
         if(count>time)
             count = 0;
         this.setMessage(ReputationUtil.getComponent(type));
-        this.setWidth(Minecraft.getInstance().font.width(getMessage())+16);
+        this.setWidth(Minecraft.getInstance().font.width(getMessage())+16+4);
         this.type = type;
     }
 
