@@ -9,17 +9,21 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import org.hiedacamellia.immersiveui.client.gui.component.w2s.World2ScreenWidget;
+import org.hiedacamellia.minereputation.client.gui.layer.ToastLayer;
 import org.hiedacamellia.minereputation.client.gui.util.ReputationUtil;
+import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 import org.joml.Vector3f;
 
 public class VillagerReputationW2SWidget extends World2ScreenWidget {
 
     private final Villager villager;
     protected static final Player player = Minecraft.getInstance().player;
-    protected static final Font font = Minecraft.getInstance().font;
     protected int reputation;
 
     public void setReputation(int reputation){
+        if(this.reputation != reputation){
+            ToastLayer.INSTANCE.setToast(ReputationChangeType.calculate(reputation-this.reputation));
+        }
         this.reputation = reputation;
     }
 

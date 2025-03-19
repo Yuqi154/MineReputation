@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.network.chat.Component;
 import org.hiedacamellia.minereputation.client.gui.widget.ReputationToastMessageWidget;
+import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 
 public class ToastLayer implements LayeredDraw.Layer {
 
@@ -13,9 +14,9 @@ public class ToastLayer implements LayeredDraw.Layer {
 
     private ReputationToastMessageWidget widget;
 
-    public void setToast(Component component){
+    public void setToast(ReputationChangeType type){
         if(widget == null) return;
-        widget.reset(component);
+        widget.reset(type);
     }
 
     protected ToastLayer(){

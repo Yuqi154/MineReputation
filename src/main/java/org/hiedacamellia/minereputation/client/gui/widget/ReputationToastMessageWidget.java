@@ -18,7 +18,7 @@ public class ReputationToastMessageWidget extends AbstractWidget {
     private ReputationChangeType type;
 
     public ReputationToastMessageWidget(int x, int y, int width, int height, float time) {
-        super(x-width/2, y-height/2, width, height, Component.empty());
+        super(x, y, width, height, Component.empty());
         this.time = time;
     }
 
@@ -26,6 +26,8 @@ public class ReputationToastMessageWidget extends AbstractWidget {
         if(count>time)
             count = 0;
         this.setMessage(ReputationUtil.getComponent(type));
+        this.setWidth(Minecraft.getInstance().font.width(getMessage())+16);
+        this.type = type;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class ReputationToastMessageWidget extends AbstractWidget {
         count+=v;
         PoseStack pose = guiGraphics.pose();
         pose.pushPose();
-        pose.translate(getX()+ (double) getWidth() /2,getY()+ (double) getHeight() /2,1000.0);
+        pose.translate(getX(),getY(),1000.0);
         //smoothstep alpha
         float alpha;
         if(count<time*0.5f){
@@ -47,9 +49,14 @@ public class ReputationToastMessageWidget extends AbstractWidget {
         pose.scale(alpha,alpha,0);
         RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1.0f,1.0f,1.0f,alpha);
-        IUIGuiUtils.fillRoundRectCentered(guiGraphics,width,height,0.05f,0x80000000);
-        ReputationUtil.render(guiGraphics,type);
-        IUIGuiUtils.drawCenteredString(guiGraphics, Minecraft.getInstance().font, getMessage(),0,0,0xFFFFFFFF,false);
+        IUIGuiUtils.fillRoundRect(guiGraphics,0,0,width,height,0.02f,0x80000000);
+        if(type!=null) {
+            pose.pushPose();
+            pose.translate(getWidth() - 8, (float) getHeight() /2,0);
+            ReputationUtil.render(guiGraphics, type);
+            pose.popPose();
+        }
+        IUIGuiUtils.drawCenteredString(guiGraphics, Minecraft.getInstance().font, getMessage(),(getWidth()-16)/2,getHeight()/2,0xFFFFFFFF,false);
         RenderSystem.setShaderColor(1.0f,1.0f,1.0f,1.0f);
         pose.popPose();
         RenderSystem.disableBlend();

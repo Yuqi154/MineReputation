@@ -14,7 +14,7 @@ import org.hiedacamellia.minereputation.client.gui.layer.ToastLayer;
 public class MRLayer {
     @SubscribeEvent
     public static void registerOverlay(RegisterGuiLayersEvent event) {
-        event.registerAbove(World2ScreenWidgetLayer.LOCATION,
+        event.registerBelow(VanillaGuiLayers.DEBUG_OVERLAY,
                 MineReputation.rl("toast"),
                 ToastLayer.INSTANCE);
     }
