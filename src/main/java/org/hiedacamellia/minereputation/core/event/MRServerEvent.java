@@ -7,12 +7,11 @@ import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
-import org.hiedacamellia.minereputation.MineReputation;
+import org.hiedacamellia.minereputation.core.config.MRCommonConfig;
 import org.hiedacamellia.minereputation.core.network.VillageReputationS2CMessage;
 import org.hiedacamellia.minereputation.core.util.ReputationCache;
 import org.hiedacamellia.minereputation.core.util.VillagerSelector;
@@ -33,8 +32,9 @@ public class MRServerEvent {
             if(serverLevel.getGameTime()%10!=0)return;
 
             Vec3 position = serverPlayer.position();
-            //取附近10范围
-            AABB aabb = new AABB(position.add(10, 10, 10), position.add(-10, -10, -10));
+
+            int range = MRCommonConfig.TRACK_RADIUS.get();
+            AABB aabb = new AABB(position.add(range, range, range), position.add(-range, -range, -range));
             List<Entity> entities = serverLevel.getEntities(serverPlayer, aabb, VillagerSelector.INSTANCE);
             entities.forEach(e->{
                 Villager villager = (Villager) e;

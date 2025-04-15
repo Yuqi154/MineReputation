@@ -1,7 +1,5 @@
 package org.hiedacamellia.minereputation.core.util;
 
-import org.hiedacamellia.minereputation.MineReputation;
-
 import java.util.*;
 
 public class ReputationCache {

@@ -1,5 +1,8 @@
 {
   "minereputation.reputation.normal": "Reputation",
   "minereputation.reputation.increase": "Increased reputation",
-  "minereputation.reputation.decrease": "Decreased reputation"
+  "minereputation.reputation.decrease": "Decreased reputation",
+  "minereputation.configuration.track_radius": "Tracking radius",
+  "minereputation.configuration.render_over_village": "Show reputation over village",
+  "minereputation.configuration.show_reputation_value": "Render reputation value"
 }

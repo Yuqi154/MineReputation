@@ -8,7 +8,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import org.hiedacamellia.immersiveui.client.graphic.gui.IUIGuiUtils;
-import org.hiedacamellia.minereputation.client.gui.util.ReputationUtil;
+import org.hiedacamellia.minereputation.client.gui.util.ReputationRenderUtil;
 import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 
 public class ReputationToastMessageWidget extends AbstractWidget {
@@ -25,7 +25,7 @@ public class ReputationToastMessageWidget extends AbstractWidget {
     public void reset(ReputationChangeType type){
         if(count>time)
             count = 0;
-        this.setMessage(ReputationUtil.getComponent(type));
+        this.setMessage(ReputationRenderUtil.getComponent(type));
         this.setWidth(Minecraft.getInstance().font.width(getMessage())+16+4);
         this.type = type;
     }
@@ -53,7 +53,7 @@ public class ReputationToastMessageWidget extends AbstractWidget {
         if(type!=null) {
             pose.pushPose();
             pose.translate(getWidth() - 8, (float) getHeight() /2,0);
-            ReputationUtil.render(guiGraphics, type);
+            ReputationRenderUtil.render(guiGraphics, type);
             pose.popPose();
         }
         IUIGuiUtils.drawCenteredString(guiGraphics, Minecraft.getInstance().font, getMessage(),(getWidth()-16)/2,getHeight()/2,0xFFFFFFFF,false);

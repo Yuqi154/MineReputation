@@ -4,14 +4,13 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import org.hiedacamellia.immersiveui.client.gui.component.w2s.World2ScreenWidget;
 import org.hiedacamellia.minereputation.client.gui.layer.ToastLayer;
-import org.hiedacamellia.minereputation.client.gui.util.ReputationUtil;
-import org.hiedacamellia.minereputation.core.util.ReputationCache;
+import org.hiedacamellia.minereputation.client.gui.util.ReputationRenderUtil;
+import org.hiedacamellia.minereputation.core.config.MRClientConfig;
 import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 import org.joml.Vector3f;
 
@@ -64,11 +63,14 @@ public class VillagerReputationW2SWidget extends World2ScreenWidget {
     @Override
     public void getWorldPos(Vector3f out) {
         if(villager == null) return;
-        out.set(villager.getEyePosition().add(0,0.5,0).toVector3f());
+        out.set(villager.getEyePosition().add(0,0.8,0).toVector3f());
     }
 
     @Override
     public void render(GuiGraphics guiGraphics, boolean highlight, float value, DeltaTracker deltaTracker) {
+
+        if(MRClientConfig.RENDER_OVER_VILLAGER.isFalse())return;
+
         if(player == null) return;
         if(!villager.isAlive()){
             ExistW2SWidget.remove(getId());
@@ -89,7 +91,7 @@ public class VillagerReputationW2SWidget extends World2ScreenWidget {
         pose.pushPose();
         RenderSystem.enableBlend();
         pose.translate(centerX, centerY, 0);
-        ReputationUtil.render(guiGraphics,reputation);
+        ReputationRenderUtil.render(guiGraphics,reputation);
 
 
         RenderSystem.disableBlend();

@@ -4,7 +4,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
-import net.minecraft.network.chat.Component;
 import org.hiedacamellia.minereputation.client.gui.widget.ReputationToastMessageWidget;
 import org.hiedacamellia.minereputation.core.util.ReputationChangeType;
 

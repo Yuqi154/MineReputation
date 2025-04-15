@@ -1,5 +1,8 @@
 {
   "minereputation.reputation.normal": "声望",
   "minereputation.reputation.increase": "获得的声望",
-  "minereputation.reputation.decrease": "失去的声望"
+  "minereputation.reputation.decrease": "失去的声望",
+  "minereputation.configuration.track_radius": "追踪半径",
+  "minereputation.configuration.render_over_village": "在村民头上显示声望",
+  "minereputation.configuration.show_reputation_value": "显示声望值"
 }

@@ -2,7 +2,6 @@ package org.hiedacamellia.minereputation.core.network;
 
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -11,7 +10,6 @@ import org.hiedacamellia.immersiveui.client.gui.component.w2s.World2ScreenWidget
 import org.hiedacamellia.minereputation.MineReputation;
 import org.hiedacamellia.minereputation.client.gui.widget.w2s.ExistW2SWidget;
 import org.hiedacamellia.minereputation.client.gui.widget.w2s.VillagerReputationW2SWidget;
-import org.hiedacamellia.minereputation.core.util.ReputationCache;
 
 import java.util.UUID;
 

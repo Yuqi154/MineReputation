@@ -5,7 +5,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
-import org.hiedacamellia.immersiveui.client.gui.layer.World2ScreenWidgetLayer;
 import org.hiedacamellia.minereputation.MineReputation;
 import org.hiedacamellia.minereputation.client.gui.layer.ToastLayer;
 

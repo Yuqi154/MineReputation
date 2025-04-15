@@ -9,12 +9,9 @@ import net.neoforged.fml.config.ModConfig;
 import org.hiedacamellia.minereputation.core.config.MRCommonConfig;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(MineReputation.MODID)
 public class MineReputation {
-    // Define mod id in a common place for everything to reference
     public static final String MODID = "minereputation";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MineReputation(IEventBus modEventBus, ModContainer modContainer) {
