@@ -1,0 +1,8 @@
+{
+  "minereputation.reputation.normal": "Репутация",
+  "minereputation.reputation.increase": "Репутация повышена",
+  "minereputation.reputation.decrease": "Репутация понижена",
+  "minereputation.configuration.track_radius": "Радиус отслеживания",
+  "minereputation.configuration.render_over_village": "Показывать репутацию над деревней",
+  "minereputation.configuration.show_reputation_value": "Отображать значение репутации"
+}

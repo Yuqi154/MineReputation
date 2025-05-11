@@ -1,0 +1,8 @@
+{
+  "minereputation.reputation.normal": "Репутація",
+  "minereputation.reputation.increase": "Репутація підвищена",
+  "minereputation.reputation.decrease": "Репутация знижена",
+  "minereputation.configuration.track_radius": "Радіус відстеження",
+  "minereputation.configuration.render_over_village": "Показувати репутацію над селом",
+  "minereputation.configuration.show_reputation_value": "Відображати значення репутації"
+}
